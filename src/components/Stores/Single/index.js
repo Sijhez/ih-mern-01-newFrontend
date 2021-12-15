@@ -20,7 +20,7 @@ export default function SingleStore() {
 			</button>
            <h1>Tienda:{singleStore.nombre}</h1>
 			<p>Descripción:{singleStore.domicilio}</p>
-			<p>Precio:{singleStore.telefono}</p>
+			<p>Telefono:{singleStore.telefono}</p>
 
         </div>
     )

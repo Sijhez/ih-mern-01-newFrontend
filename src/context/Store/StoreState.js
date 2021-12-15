@@ -47,6 +47,11 @@ const StoreState = (props) =>{
         })
         }
 
+        const createStore = async(form)=>{
+            const res = await axiosClient.post("stores/createStore", form)
+            console.log(res)
+        }
+
     return (
         //provider: Le va a dar acceso a todos los components para que tengan el estado global
         <StoreContext.Provider
@@ -56,7 +61,8 @@ const StoreState = (props) =>{
              singleStore:globalState.singleStore,
              cambiaTexto,
              getAllStores,
-             getSingleStore
+             getSingleStore,
+             createStore
           }
          }
         >

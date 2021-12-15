@@ -14,6 +14,8 @@ import SingleStore from "./components/Stores/Single";
 
 import StoreState from "./context/Store/StoreState";
 import Single from "./components/Guitars/Single"
+import CreateGuitar from './components/Guitars/Create'
+import CreateStore from "./components/Stores/CreateStore";
 
 const Router = ()=>{
   return (
@@ -32,6 +34,10 @@ const Router = ()=>{
                 <Route path="tiendas" element={<Stores/>}/>
                 <Route path="guitarras/:id" element ={<Single/>}/>
                 <Route path="tiendas/:id" element={<SingleStore/>}/>
+                {/* localhost:3000/guitarras/crear */}
+                <Route path="guitarras/crear" element={<CreateGuitar/>}/>
+                <Route path="tiendas/crearTienda" element={<CreateStore/>}/>
+            
               </Route>
           </Routes>
         </BrowserRouter>

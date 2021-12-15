@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import GuitarContext from './../../../context/Guitar/GuitarContext'
 
 import {useParams} from 'react-router-dom'
@@ -11,21 +11,25 @@ export default function Single() {
 
 	const params = useParams()
 	const id = params.id
-     
+     //es un hook que se ejecuta al finalizar el renderizado de react
+    useEffect(()=>{
+       getGuitar(id)
+    },[])
    
 	return (
 		<div>
 		<h2>Página individual de guitarra</h2>			
 
-			<button
+			{/* <button
             type="button" 
             className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             onClick={() => { getGuitar(id) }}>
 				Obtener guitarra individual
-			</button>
+			</button> */}
             <h1>Marca:{singleGuitar.nombre}</h1>
 			<p>Descripción:{singleGuitar.descripcion}</p>
 			<p>Precio:{singleGuitar.precio}</p>
+            <p>Color:{singleGuitar.color}</p>
 
 		</div>
 	)

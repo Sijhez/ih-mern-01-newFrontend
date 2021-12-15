@@ -56,6 +56,10 @@ const GuitarState =(props)=>{
     })//esto envia los datos al reducer para cambiar estado global
     //console.log(res)
 }
+    const createGuitar = async(form)=>{
+    const res = await axiosClient.post("guitars/create", form)
+    console.log(res)
+    }
          
    //4. RETORNO
    return (
@@ -66,7 +70,7 @@ const GuitarState =(props)=>{
             hola: globalState.hola,
             singleGuitar:globalState.singleGuitar, 
             changeText,
-            getGuitars, getGuitar
+            getGuitars, getGuitar, createGuitar
          }}
        >
            {props.children}
