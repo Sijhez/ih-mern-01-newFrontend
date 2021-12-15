@@ -37,8 +37,14 @@ const StoreState = (props) =>{
     }
 
      const getSingleStore = async(storeId) =>{
-         const res = await axiosClient.get(`stores/readOneStore/${storeId}`)
-         console.log(res)
+         const res = await axiosClient.get(`stores/readStores/${storeId}`)
+        const selectedStore = res.data.data
+
+         //  console.log(res)
+        dispatch({
+            type:"GET_STORE",
+            payload:selectedStore
+        })
         }
 
     return (
