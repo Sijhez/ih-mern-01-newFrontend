@@ -52,6 +52,15 @@ const StoreState = (props) =>{
             console.log(res)
         }
 
+        const updateStore = async (form, idStore) =>{
+            const res = await axiosClient.put(`stores/editStore/${idStore}`,form)
+           const updatedStore = res.data.data
+           dispatch({
+               type:"UPDATE_STORE",
+               payload:updatedStore
+           })
+        }
+
     return (
         //provider: Le va a dar acceso a todos los components para que tengan el estado global
         <StoreContext.Provider
@@ -62,7 +71,8 @@ const StoreState = (props) =>{
              cambiaTexto,
              getAllStores,
              getSingleStore,
-             createStore
+             createStore,
+             updateStore
           }
          }
         >

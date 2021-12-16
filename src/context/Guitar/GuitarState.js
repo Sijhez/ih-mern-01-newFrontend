@@ -60,6 +60,15 @@ const GuitarState =(props)=>{
     const res = await axiosClient.post("guitars/create", form)
     console.log(res)
     }
+
+    const updateGuitar = async (form, idGuitar)=>{
+        const res = await axiosClient.put(`guitars/edit/${idGuitar}`, form)
+        const updatedGuitar = res.data.data
+        dispatch({
+            type:"UPDATE_GUITAR",
+            payload: updatedGuitar
+        })
+    }
          
    //4. RETORNO
    return (
@@ -70,7 +79,8 @@ const GuitarState =(props)=>{
             hola: globalState.hola,
             singleGuitar:globalState.singleGuitar, 
             changeText,
-            getGuitars, getGuitar, createGuitar
+            getGuitars, getGuitar, createGuitar,
+            updateGuitar
          }}
        >
            {props.children}
